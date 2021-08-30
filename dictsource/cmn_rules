@@ -46,6 +46,7 @@
 ẑ zh 
 ĉ ch 
 ŝ sh 
+5  
 
 .L01  j q x y
 
@@ -321,12 +322,13 @@ language).
        zh (+    ts.
     @) z (K	_^_EN
 
+
+.group
+       1      V
+       2      X
+       3      Y
+       4      Z
+
 //tone number
 .group
-       1	55
-       2	35
-       3	214
-       4	51
-       5	11
-
 	|	_|

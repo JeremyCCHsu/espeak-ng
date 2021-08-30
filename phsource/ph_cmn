@@ -101,6 +101,37 @@ phoneme N
 endphoneme
 
 
+phoneme V
+  vcd vel nas
+  lengthmod 7
+  ipa ̄
+  Vowelout f1=2 f2=1900 0 300  f3=400 80  len=50 rms=15 brk
+endphoneme
+
+phoneme X
+  vcd vel nas
+  lengthmod 7
+  ipa ́
+  Vowelout f1=2 f2=1900 0 300  f3=400 80  len=50 rms=15 brk
+endphoneme
+
+phoneme Y
+  vcd vel nas
+  lengthmod 7
+  ipa ̌
+  Vowelout f1=2 f2=1900 0 300  f3=400 80  len=50 rms=15 brk
+endphoneme
+
+phoneme Z
+  vcd vel nas
+  lengthmod 7
+  ipa ̀
+  Vowelout f1=2 f2=1900 0 300  f3=400 80  len=50 rms=15 brk
+endphoneme
+
+
+
+
 phoneme l
   liquid
   lengthmod 2
@@ -151,6 +182,7 @@ endphoneme
 
 phoneme ph
   vls blb stp
+  ipa pʰ
   lengthmod 2
   Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 amp=11
   Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
@@ -175,6 +207,7 @@ endphoneme
 
 phoneme th
   vls alv stp
+  ipa tʰ
   lengthmod 2
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80
   Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
@@ -191,6 +224,7 @@ endphoneme
 
 phoneme kh
   vls uvl stp
+  ipa kʰ
   lengthmod 2
   Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
   Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
@@ -207,7 +241,7 @@ endphoneme
 
 phoneme tS;h
   vls alp sib afr
-  ipa tɕh
+  ipa tɕʰ
   lengthmod 2
   Vowelin f1=0  f2=2700 400 600  f3=300 80
   WAV(ustop/tsh_pzd, 80)
@@ -223,6 +257,7 @@ endphoneme
 
 phoneme s.
   vls pla frc sib
+  ipa ʂ
   lengthmod 3
   Vowelin  f1=0  f2=1800 -100 300  f3=-300 80
   Vowelout f1=0  f2=1800 -100 300  f3=-300 80
@@ -244,6 +279,7 @@ endphoneme
 phoneme tsh
   vls alv afr sib
   lengthmod 2
+  ipa tsʰ
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80
   Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
   WAV(ustop/ts, 60)
@@ -251,6 +287,7 @@ endphoneme
 
 phoneme ts.
   vls pla frc sib
+  ipa ʈʂ
   lengthmod 3
   Vowelin  f1=0  f2=1800 -100 300  f3=-300 80
   Vowelout f1=0  f2=1800 -100 300  f3=-300 80
@@ -258,6 +295,7 @@ phoneme ts.
 endphoneme
 
 phoneme ts.h
+  ipa ʈʂʰ
   vls pla frc sib
   lengthmod 3
   Vowelin  f1=0  f2=1800 -100 300  f3=-300 80
@@ -348,6 +386,7 @@ endphoneme
 phoneme i[ //after ts tsh s
   vwl  starttype #i  endtype #i
   length 250
+  ipa ɨ
   FMT(vowel/i#_7)
 endphoneme
 
