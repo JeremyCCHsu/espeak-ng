@@ -308,14 +308,14 @@ endphoneme
 //====================================================
 
 phoneme N-   // syllabic N
-  vwl starttype N endtype N
+  vls pla frc sib
   length 250
   FMT(nn/nn2_)
 endphoneme
 
 
 phoneme a
-  vwl starttype #a endtype #a
+  vls pla frc sib
   length 250
   IF nextPh(N) THEN
     FMT(vwl_zh/a_n)
@@ -324,7 +324,7 @@ phoneme a
 endphoneme
 
 phoneme A
-  vwl starttype #a endtype #a
+  vls pla frc sib
   length 250
   IF nextPh(N) THEN
     FMT(vowel/aa_2)
@@ -333,46 +333,58 @@ phoneme A
 endphoneme
 
 phoneme ai
-  vwl starttype #a endtype #i
+  vls pla frc sib
   length 250
   FMT(vdiph/ai_6)
 endphoneme
 
 phoneme Au
-  vwl starttype #a endtype #u
+  vls pla frc sib
   length 250
   FMT(vwl_zh/aau)
 endphoneme
 
 phoneme @
-  vwl  starttype #@  endtype #@
+  vls pla frc sib
   length 200
   IF nextPh(N) THEN
     FMT(vowel/@_bck)
   ENDIF
-  FMT(vowel/3_2)
+  ipa ə
 endphoneme
 
 phoneme @r  //tmp use V3_r
-  vwl  starttype #@  endtype #@
+  vls pla frc sib
   length 350
   FMT(vowelr/V3_r)
 endphoneme
 
 phoneme E
-  vwl  starttype #e  endtype #e
+  vls pla frc sib
   length 250
   FMT(vowel/ee_2)
 endphoneme
 
 phoneme ei
-  vwl starttype #e endtype #i
+  vls pla frc sib
   length 250
   FMT(vdiph2/ei_4)
 endphoneme
 
+phoneme i. //after ts tsh s
+  vls pla frc sib
+  ipa ɨ
+  length 250
+endphoneme
+
+phoneme i[ //after ts. tsh. s. r.
+  vls pla frc sib
+  ipa ɨ
+  length 250
+endphoneme
+
 phoneme i
-  vwl  starttype #i  endtype #i
+  vls pla frc sib
   length 250
   IF nextPh(N) THEN
     FMT(vowel/ii_2)
@@ -383,51 +395,39 @@ phoneme i
   FMT(vowel/i)
 endphoneme
 
-phoneme i[ //after ts tsh s
-  vwl  starttype #i  endtype #i
-  length 250
-  ipa ɨ
-  FMT(vowel/i#_7)
-endphoneme
-
-phoneme i. //after ts. ts.h s. z.
-  vwl  starttype #i  endtype #i
-  length 250
-  FMT(vowel/i#_6)
-endphoneme
 
 phoneme iA  //try more before N
-  vwl  starttype #i  endtype #a
+  vls pla frc sib
   length 250
   FMT(vwl_zh/iaa)
 endphoneme
 
 phoneme iAu
-  vwl  starttype #i  endtype #u
+  vls pla frc sib
   length 250
   FMT(vwl_zh/iaau)
 endphoneme
 
 phoneme iE
-  vwl  starttype #i  endtype #e
+  vls pla frc sib
   length 250
   FMT(vwl_zh/ie)
 endphoneme
 
 phoneme io
-  vwl starttype #i endtype #o
+  vls pla frc sib
   length 250
   FMT(vdiph2/iioo)
 endphoneme
 
 phoneme iou
-  vwl starttype #i endtype #u
+  vls pla frc sib
   length 250
   FMT(vwl_zh/iou)
 endphoneme
 
 phoneme o
-  vwl starttype #o endtype #o
+  vls pla frc sib
   length 250
   IF nextPh(N) THEN
     FMT(vnasal/oo_n2)
@@ -436,25 +436,25 @@ phoneme o
 endphoneme
 
 phoneme o-
-  vwl  starttype #o  endtype #o
+  vls pla frc sib
   length 250
-  FMT(vowel/8)
+  ipa ə
 endphoneme
 
 phoneme ou
-  vwl starttype #o endtype #u
+  vls pla frc sib
   length 250
   FMT(vdiph/8u)
 endphoneme
 
 phoneme ong
-  vwl starttype #o endtype #o 
+  vls pla frc sib
   length 500
   FMT(vwl_zh/ong)
 endphoneme
 
 phoneme u //try more before N
-  vwl starttype #u endtype #u
+  vls pla frc sib
   length 250
   IF nextPh(N) THEN
     FMT(vnasal/u_n)
@@ -463,43 +463,43 @@ phoneme u //try more before N
 endphoneme
 
 phoneme uA
-  vwl starttype #u endtype #a
+  vls pla frc sib
   length 250
   FMT(vwl_zh/uaa)
 endphoneme
 
 phoneme ua
-  vwl starttype #u endtype #a
+  vls pla frc sib
   length 250
   FMT(vdiph2/oa)
 endphoneme
 
 phoneme uai
-  vwl starttype #u endtype #i
+  vls pla frc sib
   length 511
   FMT(vwl_zh/uai)
 endphoneme
 
 phoneme u@
-  vwl starttype #u endtype #@
+  vls pla frc sib
   length 230
   FMT(vdiph2/o@)
 endphoneme
 
 phoneme uei
-  vwl starttype #u endtype #i
+  vls pla frc sib
   length 250
   FMT(vwl_zh/uei)
 endphoneme
 
 phoneme uo
-  vwl starttype #u endtype #o
+  vls pla frc sib
   length 280
   FMT(vwl_zh/uo)
 endphoneme
 
 phoneme y
-  vwl  starttype #i  endtype #u
+  vls pla frc sib
   length 250
   IF nextPh(N) THEN
     FMT(vowel/uu_3)
@@ -508,31 +508,31 @@ phoneme y
 endphoneme
 
 phoneme yu  //try more before N
-  vwl  starttype #i  endtype #u
+  vls pla frc sib
   length 250
   FMT(vdiph2/yu)
 endphoneme
 
 phoneme y&
-  vwl  starttype #i  endtype #e
+  vls pla frc sib
   length 250
   FMT(vwl_zh/y&)
 endphoneme
 
 phoneme yE  //try more so not similar to iE
-  vwl  starttype #i  endtype #e
+  vls pla frc sib
   length 250
   FMT(vwl_zh/yee)
 endphoneme
 
 phoneme y@
-  vwl  starttype #i  endtype #@
+  vls pla frc sib
   length 250
   FMT(vdiph2/y@)
 endphoneme
 
 phoneme yi
-  vwl  starttype #i  endtype #i
+  vls pla frc sib
   length 250
   FMT(vdiph/yi)
 endphoneme

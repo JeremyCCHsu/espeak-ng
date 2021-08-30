@@ -5,6 +5,9 @@ LIB_PATH=$HOME/local/lib
 # make clean
 # sudo make uninstall 
 
+make clean
+make uninstall 
+
 # --with-extdict-ru 
 # --with-extdict-zh --with-extdict-zhy   # useless
 ./autogen.sh
@@ -48,3 +51,9 @@ echo "ㄅㄆㄇㄈㄉㄊㄋㄌㄎㄍㄏㄐㄑㄒㄗㄘㄙㄓㄔㄕㄖ我愛羅" 
 # Knonw
 # 1. number digits can only be assumed for tones
 
+
+# # WTF?
+# espeak-ng -X -v cmn ㄅㄆ
+# Found: 'ㄅ' [poV]
+# Found: 'ㄆ' [phoV]
+# p'o55V_| ph'o55V_|
