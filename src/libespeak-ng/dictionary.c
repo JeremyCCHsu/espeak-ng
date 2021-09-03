@@ -2435,7 +2435,7 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 	full_word[word_idx] = '\0';
 	char decoded_phonemes[80];
 	DecodePhonemes(phonemes, decoded_phonemes);
-	printf("~|||~%s~|~|~\n", decoded_phonemes);
+	// printf("~|||~%s~|~|~\n", decoded_phonemes);
 	// -------------------------------
 
 	memcpy(p_start, word_copy, strlen(word_copy));
@@ -2826,15 +2826,15 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 					// (check for wtab prevents showing RULE_SPELLING byte when speaking individual letters)
 					memcpy(word_buf, word2, word_end-word2);
 					word_buf[word_end-word2-1] = 0;
-					// fprintf(f_trans, " %s~|||~%s~|~|~\n", word_buf, ph_decoded);
+					fprintf(f_trans, " %s~|||~%s~|~|~\n", word_buf, ph_decoded);
 					// fprintf(f_trans, "Found: '%s %s\n", word1, word_buf);
 				} 
-				// else
+				else
 					// These are single word matches, for example (e.g => forexample)
 					// fprintf(f_trans, "Found: '%s", word1);
-					// fprintf(f_trans, "~|||~%s~|~|~\n", ph_decoded);
-				// print_dictionary_flags(flags, dict_flags_buf, sizeof(dict_flags_buf));
-				// fprintf(f_trans, "' [%s]  %s\n", ph_decoded, dict_flags_buf);
+					fprintf(f_trans, "~|||~%s~|~|~\n", ph_decoded);
+				print_dictionary_flags(flags, dict_flags_buf, sizeof(dict_flags_buf));
+				fprintf(f_trans, "' [%s]  %s\n", ph_decoded, dict_flags_buf);
 			}
 		}
 

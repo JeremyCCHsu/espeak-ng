@@ -564,7 +564,7 @@ static int TranslateWord3(Translator *tr, char *word_start, WORD_TAB *wtab, char
         cleaned_word[char_count] = word_copy2[char_count];
 	}
     cleaned_word[char_count] = '\0';
-    printf("%s", cleaned_word);
+    // printf("%s", cleaned_word);
 
 	spell_word = 0;
 
