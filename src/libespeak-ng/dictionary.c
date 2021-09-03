@@ -2154,7 +2154,8 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					if (group_length > 1)
 						pts += 35; // to account for an extra letter matching
 					DecodePhonemes(match.phonemes, decoded_phonemes);
-					fprintf(f_trans, "%3d\t%s [%s]\n", pts, DecodeRule(group_chars, group_length, rule_start, word_flags), decoded_phonemes);
+					// [Disabled for Resembletron] THIS HERE WILL PRINT OUT SINGLE CHARACTER TRANSLATIONS
+					// fprintf(f_trans, "%3d\t%s [%s]\n", pts, DecodeRule(group_chars, group_length, rule_start, word_flags), decoded_phonemes);
 				}
 			}
 		}
@@ -2201,6 +2202,8 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 	char ph_buf[40];
 	char word_copy[N_WORD_BYTES];
 	static const char str_pause[2] = { phonPAUSE_NOLINK, 0 };
+	char full_word[80];
+	int word_idx = 0;
 
 	if (tr->data_dictrules == NULL)
 		return 0;
@@ -2237,6 +2240,9 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 		end_phonemes[0] = 0;
 
 	while (((c = *p) != ' ') && (c != 0)) {
+		full_word[word_idx] = c;
+		word_idx ++;
+
 		wc_bytes = utf8_in(&wc, p);
 		if (IsAlpha(wc))
 			any_alpha++;
@@ -2399,8 +2405,9 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 				return 0;
 			}
 
-			if ((option_phonemes & espeakPHONEMES_TRACE) && ((word_flags & FLAG_NO_TRACE) == 0))
-				fprintf(f_trans, "\n");
+			// [Disabled for Resembletron]
+			// if ((option_phonemes & espeakPHONEMES_TRACE) && ((word_flags & FLAG_NO_TRACE) == 0))
+			// 	fprintf(f_trans, "\n");
 
 			match1.end_type &= ~SUFX_UNPRON;
 
@@ -2423,6 +2430,13 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 			AppendPhonemes(tr, phonemes, ph_size, match1.phonemes);
 		}
 	}
+
+	// added for Resembletron --------
+	full_word[word_idx] = '\0';
+	char decoded_phonemes[80];
+	DecodePhonemes(phonemes, decoded_phonemes);
+	printf("~|||~%s~|~|~\n", decoded_phonemes);
+	// -------------------------------
 
 	memcpy(p_start, word_copy, strlen(word_copy));
 
@@ -2783,10 +2797,11 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 		}
 
 		if (phoneme_len == 0) {
-			if (option_phonemes & espeakPHONEMES_TRACE) {
-				print_dictionary_flags(flags, dict_flags_buf, sizeof(dict_flags_buf));
-				fprintf(f_trans, "Flags:  %s  %s\n", word1, dict_flags_buf);
-			}
+			// [Disabled for Resembletron]
+			// if (option_phonemes & espeakPHONEMES_TRACE) {
+			// 	print_dictionary_flags(flags, dict_flags_buf, sizeof(dict_flags_buf));
+			// 	fprintf(f_trans, "Flags:  %s  %s\n", word1, dict_flags_buf);
+			// }
 			return 0; // no phoneme translation found here, only flags. So use rules
 		}
 
@@ -2811,11 +2826,15 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 					// (check for wtab prevents showing RULE_SPELLING byte when speaking individual letters)
 					memcpy(word_buf, word2, word_end-word2);
 					word_buf[word_end-word2-1] = 0;
-					fprintf(f_trans, "Found: '%s %s\n", word1, word_buf);
-				} else
-					fprintf(f_trans, "Found: '%s", word1);
-				print_dictionary_flags(flags, dict_flags_buf, sizeof(dict_flags_buf));
-				fprintf(f_trans, "' [%s]  %s\n", ph_decoded, dict_flags_buf);
+					// fprintf(f_trans, " %s~|||~%s~|~|~\n", word_buf, ph_decoded);
+					// fprintf(f_trans, "Found: '%s %s\n", word1, word_buf);
+				} 
+				// else
+					// These are single word matches, for example (e.g => forexample)
+					// fprintf(f_trans, "Found: '%s", word1);
+					// fprintf(f_trans, "~|||~%s~|~|~\n", ph_decoded);
+				// print_dictionary_flags(flags, dict_flags_buf, sizeof(dict_flags_buf));
+				// fprintf(f_trans, "' [%s]  %s\n", ph_decoded, dict_flags_buf);
 			}
 		}
 
