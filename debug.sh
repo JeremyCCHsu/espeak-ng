@@ -17,6 +17,8 @@ make LIBDIR=$LIB_PATH install
 echo "ㄅㄆㄇㄈㄉㄊㄋㄌㄎㄍㄏㄐㄑㄒㄗㄘㄙㄓㄔㄕㄖ我愛羅" | phonemize -l cmn
 # po5̄ pʰo5̄ mo5̄ fo5̄ tə5̄ tʰə5̄ nə5̄ lə5̄ kʰo5̄ ko5̄ xo5̄ tɕi5̄ tɕʰi5̄ ɕi5̄ tsɨɨ̄ tsʰɨɨ̄ sɨɨ̄ ʈʂi.5̄ ʈʂʰi.5̄ ʂi.5̄ ʐi.5̄ wo5̌ ai5̀
 
+# espeak-ng -X -v zh 你好
+
 # Can't read dictionary file: '/home/jrm/github/testtt/espeak-ng/espeak-ng-data/cmn_dict' 
 
 # zcs
